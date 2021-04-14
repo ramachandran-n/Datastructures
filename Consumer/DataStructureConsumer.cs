@@ -55,7 +55,7 @@ namespace DataStructure.Search
             //Console.WriteLine(Searching.BinarySearch(inputList, 19));
             //Console.WriteLine(Searching.BinarySearch(doubleInputList, 19.0));
             //Console.WriteLine(Searching.BinarySearch(stringInputList, "Ramachandran"));
-            var outputArray = Sorting.BubbleSort(doubleInputList);
+            var outputArray = Sorting.SelectionSort(inputList);
             foreach (var element in outputArray)
             {
                 Console.WriteLine(element);

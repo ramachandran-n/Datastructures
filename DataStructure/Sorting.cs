@@ -29,9 +29,6 @@ namespace DataStructure.Sort
                         temp = inputArray[j];
                         inputArray[j] = inputArray[j + 1];
                         inputArray[j + 1] = temp;
-                        //inputArray[j] = inputArray[j]  inputArray[j+1];
-                        //inputArray[j + 1] = inputArray[j] - inputArray[j + 1];
-                        //inputArray[j] = inputArray[j] - inputArray[j + 1];
                         sorted = true;
                     }
                 }
@@ -40,6 +37,43 @@ namespace DataStructure.Sort
                 if(sorted==false)
                     //If sorted is false break the loop
                     break;
+            }
+            return inputArray;
+        }
+
+        public static List<T> SelectionSort<T>(List<T> inputArray)
+        {
+            //Get the count of the inputArray
+            int arrayLength = inputArray.Count();
+            //Set the temp variable
+            T temp;
+            //Set the minimum value in the array
+            int minimumValue = 0;
+            //Set the loop counters
+            int i = 0;
+            int j = 0;
+            //Outer loop
+
+            for(i = 0; i < arrayLength-1 ; i++)
+            {
+                //Assign the element at index i to minimumValue
+                minimumValue = i;
+                //Inner loop to check the minimum value
+                for(j = i + 1; j < arrayLength; j++)
+                {
+                    if(Comparer<T>.Default.Compare(inputArray[j], inputArray[minimumValue]) == -1)
+                    {
+                        minimumValue = j;
+                    }
+                }
+
+                if(Comparer<T>.Default.Compare(inputArray[i], inputArray[minimumValue])!= 0)
+                {
+                    //swap the values
+                    temp = inputArray[i];
+                    inputArray[i] = inputArray[minimumValue];
+                    inputArray[minimumValue] = temp;
+                }
             }
             return inputArray;
         }
